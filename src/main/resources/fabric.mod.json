@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "tutorialmod",
+	"version": "${version}",
+	"name": "tutorial mod",
+	"description": "Learnin!",
+	"authors": [
+		"HoneyBeeNancy"
+	],
+	"contact": {
+		"homepage": "https://github.com/HoneyBeeNancy",
+		"sources": "https://github.com/HoneyBeeNancy/learnin.git"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/tutorialmod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.honeybeenancy.tutorial.TutorialMod"
+		],
+		"fabric-datagen": [
+			"net.honeybeenancy.tutorial.TutorialModDataGenerator"
+		],
+		"client": [
+			"net.honeybeenancy.tutorial.TutorialModClient"
+		]
+	},
+	"mixins": [
+		"tutorialmod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.7",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
