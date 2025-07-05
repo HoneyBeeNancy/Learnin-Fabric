@@ -1,0 +1,6 @@
+{
+  "Parent":"minecraft:item/generated",
+  "textures": {
+    "layer0": "tutorial:item/combust"
+    }
+}
