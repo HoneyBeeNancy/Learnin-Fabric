@@ -6,8 +6,10 @@ import net.honeybeenancy.tutorial.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
+
 public class TutorialMod implements ModInitializer {
-	public static final String MOD_ID = "tutorialmod";
+	public static final String MOD_ID = "tutorial";
 
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
@@ -19,6 +21,6 @@ public class TutorialMod implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-		ModItems.registerModItems();
+		ModItems.initialize();
 	}
 }

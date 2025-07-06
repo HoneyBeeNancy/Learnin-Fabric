@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "tutorial:textures/item/combust"
+    "model": "tutorial:item/combust"
   }
 }

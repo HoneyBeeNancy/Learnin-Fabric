@@ -11,26 +11,33 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 
+import java.util.function.Function;
+
 public class ModItems {
 
-    public static final Item COMBUST = registerItem("combust", (new Item.Settings()));
+    public static final Item COMBUST = register("combust", Item::new, new Item.Settings());
 
 
-    private static Item registerItem(String name, Item.Settings itemSettings) {
-        Identifier id = Identifier.of(TutorialMod.MOD_ID,name);
-        RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, id);
-        Item.Settings settings = itemSettings.registryKey(key);
+    public static void initialize() {
 
-        return Registry.register(Registries.ITEM, key, new Item(settings));
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
+                .register((itemGroup) -> itemGroup.add(ModItems.COMBUST));
     }
 
-    public static void registerModItems () {
-        TutorialMod.LOGGER.info("Registering Mod Items for " + TutorialMod.MOD_ID);
 
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
-            entries.add(COMBUST);
-        });
+    public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
+        // Create the item key.
+        RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(TutorialMod.MOD_ID, name));
+
+        // Create the item instance.
+        Item item = itemFactory.apply(settings.registryKey(itemKey));
+
+        // Register the item.
+        Registry.register(Registries.ITEM, itemKey, item);
+
+        return item;
+
+
     }
 }
-
 

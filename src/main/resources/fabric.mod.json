@@ -12,7 +12,7 @@
 		"sources": "https://github.com/HoneyBeeNancy/learnin.git"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/tutorialmod/icon.png",
+	"icon": "assets/tutorial/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
